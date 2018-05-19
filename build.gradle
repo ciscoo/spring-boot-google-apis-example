@@ -1,0 +1,36 @@
+buildscript {
+    ext {
+        springBootVersion = '2.0.2.RELEASE'
+        googleApiClientVersion = '1.23.0'
+        googleCalendarApiVersion = 'v3-rev321-1.23.0'
+        googleDriveApiVersion = 'v3-rev118-1.23.0'
+        commonsVersion = '2.6'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'io.mateo'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile("com.google.api-client:google-api-client:$googleApiClientVersion")
+    compile("com.google.apis:google-api-services-calendar:$googleCalendarApiVersion")
+    compile("com.google.apis:google-api-services-drive:$googleDriveApiVersion")
+    compile("commons-io:commons-io:$commonsVersion")
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
