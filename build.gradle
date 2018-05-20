@@ -5,12 +5,14 @@ buildscript {
         googleCalendarApiVersion = 'v3-rev321-1.23.0'
         googleDriveApiVersion = 'v3-rev118-1.23.0'
         commonsVersion = '2.6'
+        coverallsGradleVersion = '2.8.2'
     }
     repositories {
         mavenCentral()
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion")
+        classpath("org.kt3k.gradle.plugin:coveralls-gradle-plugin:$coverallsGradleVersion")
     }
 }
 
@@ -18,6 +20,7 @@ apply plugin: 'java'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 apply plugin: 'jacoco'
+apply plugin: 'com.github.kt3k.coveralls'
 
 group = 'io.mateo'
 version = '0.0.1-SNAPSHOT'
@@ -39,6 +42,5 @@ dependencies {
 jacocoTestReport {
     reports {
         xml.enabled = false
-        csv.enabled = false
     }
 }
