@@ -15,6 +15,7 @@ import java.util.HashSet;
 import java.util.Set;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.core.io.ClassPathResource;
 
 /**
@@ -22,6 +23,7 @@ import org.springframework.core.io.ClassPathResource;
  * JacksonFactory}.
  */
 @Configuration
+@Profile("!test")
 public class GoogleApiClientConfig {
     /**
      * Provides a unmodifiable {@link Set<String>} of Google OAuth 2.0 scopes to be used.
