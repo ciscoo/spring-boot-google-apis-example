@@ -4,11 +4,7 @@ import com.google.api.client.googleapis.json.GoogleJsonResponseException;
 import com.google.api.services.drive.model.File;
 import io.mateo.googleapisdemo.advice.GoogleApiClientExceptionHandler;
 import io.mateo.googleapisdemo.service.GoogleDriveService;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 
@@ -41,7 +37,8 @@ public class GoogleDriveController {
      * @throws IOException when the Google API returned an error code; handled by {@link GoogleApiClientExceptionHandler#handleGoogleApiErrors(GoogleJsonResponseException)}.
      */
     @GetMapping("/{fileId}/media")
-    public ResponseEntity<byte[]> getFile(@PathVariable String fileId) throws IOException {
+    @ResponseBody
+    public byte[] getFile(@PathVariable String fileId) throws IOException {
         return googleDriveService.getFile(fileId);
     }
 }

@@ -36,27 +36,15 @@ public class GoogleDriveService {
     /**
      * Get the raw file.
      *
-     * TODO: Take advantage of ByteArrayHttpMessageConverter instead of manually building the response.
-     *
      * @param fileId The ID of the file
      * @return {@link ResponseEntity}
      * @throws IOException when an error occurs in the HTTP request
      */
-    public ResponseEntity<byte[]> getFile(@NonNull String fileId) throws IOException {
-        File fileMetadata = getFileMetaData(fileId);
-        HttpHeaders httpHeaders = new HttpHeaders();
-
-        ResponseEntity<byte[]> response;
+    public byte[] getFile(@NonNull String fileId) throws IOException {
         byte[] media;
-
-        httpHeaders.setContentType(MediaType.valueOf(fileMetadata.getMimeType()));
-        httpHeaders.setCacheControl(CacheControl.noCache());
-
         try (InputStream data = googleDrive.files().get(fileId).executeMediaAsInputStream()) {
             media = IOUtils.toByteArray(data);
-            response = new ResponseEntity<>(media, httpHeaders, HttpStatus.OK);
         }
-
-        return response;
+        return media;
     }
 }
