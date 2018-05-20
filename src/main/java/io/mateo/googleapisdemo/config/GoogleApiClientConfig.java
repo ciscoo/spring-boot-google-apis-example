@@ -6,10 +6,6 @@ import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.services.calendar.CalendarScopes;
 import com.google.api.services.drive.DriveScopes;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.core.io.ClassPathResource;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -17,9 +13,13 @@ import java.security.GeneralSecurityException;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.ClassPathResource;
 
 /**
- * Auto-configuration for {@link GoogleCredential}, {@link NetHttpTransport}, and {@link JacksonFactory}.
+ * Auto-configuration for {@link GoogleCredential}, {@link NetHttpTransport}, and {@link
+ * JacksonFactory}.
  */
 @Configuration
 public class GoogleApiClientConfig {

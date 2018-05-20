@@ -7,16 +7,17 @@ import com.google.api.services.drive.Drive;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-/**
- * Auto-configuration for {@link Drive}.
- */
+/** Auto-configuration for {@link Drive}. */
 @Configuration
 public class GoogleDriveConfig {
     private GoogleCredential googleCredential;
     private NetHttpTransport netHttpTransport;
     private JacksonFactory jacksonFactory;
 
-    public GoogleDriveConfig(GoogleCredential googleCredential, NetHttpTransport netHttpTransport, JacksonFactory jacksonFactory) {
+    public GoogleDriveConfig(
+            GoogleCredential googleCredential,
+            NetHttpTransport netHttpTransport,
+            JacksonFactory jacksonFactory) {
         this.googleCredential = googleCredential;
         this.netHttpTransport = netHttpTransport;
         this.jacksonFactory = jacksonFactory;

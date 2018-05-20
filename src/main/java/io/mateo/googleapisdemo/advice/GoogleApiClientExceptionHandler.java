@@ -4,20 +4,22 @@ import com.google.api.client.googleapis.json.GoogleJsonError;
 import com.google.api.client.googleapis.json.GoogleJsonResponseException;
 import io.mateo.googleapisdemo.controller.GoogleCalendarController;
 import io.mateo.googleapisdemo.controller.GoogleDriveController;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-
 /**
- * Responsible for handling any errors that occur when making requests to Google APIs. Typically this controller advice
- * is invoked when the HTTP request succeeded, but the Google API returned an error.
+ * Responsible for handling any errors that occur when making requests to Google APIs. Typically
+ * this controller advice is invoked when the HTTP request succeeded, but the Google API returned an
+ * error.
  */
-@RestControllerAdvice(assignableTypes = {GoogleDriveController.class, GoogleCalendarController.class})
+@RestControllerAdvice(
+    assignableTypes = {GoogleDriveController.class, GoogleCalendarController.class}
+)
 public class GoogleApiClientExceptionHandler {
     /**
      * Handle errors returned from a HTTP request to a Google API.

@@ -3,14 +3,11 @@ package io.mateo.googleapisdemo.service;
 import com.google.api.services.calendar.model.Calendar;
 import com.google.api.services.calendar.model.Event;
 import com.google.api.services.calendar.model.Events;
+import java.io.IOException;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
-
-/**
- * Service to perform API operations for Google Calendar API.
- */
+/** Service to perform API operations for Google Calendar API. */
 @Service
 public class GoogleCalendarService {
     private com.google.api.services.calendar.Calendar googleCalendar;
@@ -49,7 +46,8 @@ public class GoogleCalendarService {
      * @return {@link Event}
      * @throws IOException when an error occurs in the HTTP request
      */
-    public Event getEventInfoFromCalendar(@NonNull String calendarId, @NonNull String eventId) throws IOException {
+    public Event getEventInfoFromCalendar(@NonNull String calendarId, @NonNull String eventId)
+            throws IOException {
         return googleCalendar.events().get(calendarId, eventId).execute();
     }
 }

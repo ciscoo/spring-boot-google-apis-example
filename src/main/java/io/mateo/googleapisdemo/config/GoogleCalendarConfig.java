@@ -7,16 +7,17 @@ import com.google.api.services.calendar.Calendar;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-/**
- * Auto-configuration for {@link Calendar}.
- */
+/** Auto-configuration for {@link Calendar}. */
 @Configuration
 public class GoogleCalendarConfig {
     private GoogleCredential googleCredential;
     private NetHttpTransport netHttpTransport;
     private JacksonFactory jacksonFactory;
 
-    public GoogleCalendarConfig(GoogleCredential googleCredential, NetHttpTransport netHttpTransport, JacksonFactory jacksonFactory) {
+    public GoogleCalendarConfig(
+            GoogleCredential googleCredential,
+            NetHttpTransport netHttpTransport,
+            JacksonFactory jacksonFactory) {
         this.googleCredential = googleCredential;
         this.netHttpTransport = netHttpTransport;
         this.jacksonFactory = jacksonFactory;

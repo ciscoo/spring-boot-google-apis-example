@@ -1,36 +1,30 @@
 package io.mateo.googleapisdemo.service;
 
-import com.google.api.services.drive.Drive;
-import com.google.api.services.drive.Drive.Files;
-import com.google.api.services.drive.Drive.Files.Get;
-import com.google.api.services.drive.model.File;
-import org.assertj.core.api.Assertions;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.junit.MockitoJUnitRunner;
-
-import java.io.IOException;
-import java.io.InputStream;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+import com.google.api.services.drive.Drive;
+import com.google.api.services.drive.Drive.Files;
+import com.google.api.services.drive.Drive.Files.Get;
+import com.google.api.services.drive.model.File;
+import java.io.IOException;
+import java.io.InputStream;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
+
 @RunWith(MockitoJUnitRunner.class)
 public class GoogleDriveServiceTest {
-    @Mock
-    private Drive googleDrive;
+    @Mock private Drive googleDrive;
 
-    @Mock
-    private Files files;
+    @Mock private Files files;
 
-    @Mock
-    private Get filesGet;
+    @Mock private Get filesGet;
 
     private GoogleDriveService googleDriveService;
 
