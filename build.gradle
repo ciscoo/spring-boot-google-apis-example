@@ -17,6 +17,7 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
+apply plugin: 'jacoco'
 
 group = 'io.mateo'
 version = '0.0.1-SNAPSHOT'
@@ -33,4 +34,11 @@ dependencies {
     compile("com.google.apis:google-api-services-drive:$googleDriveApiVersion")
     compile("commons-io:commons-io:$commonsVersion")
     testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled = false
+        csv.enabled = false
+    }
 }
