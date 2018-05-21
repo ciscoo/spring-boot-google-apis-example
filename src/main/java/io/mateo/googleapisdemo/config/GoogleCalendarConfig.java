@@ -6,11 +6,9 @@ import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.services.calendar.Calendar;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
 
 /** Auto-configuration for {@link Calendar}. */
 @Configuration
-@Profile("!test")
 public class GoogleCalendarConfig {
     private GoogleCredential googleCredential;
     private NetHttpTransport netHttpTransport;

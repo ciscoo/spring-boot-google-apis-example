@@ -6,11 +6,9 @@ import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.services.drive.Drive;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
 
 /** Auto-configuration for {@link Drive}. */
 @Configuration
-@Profile("!test")
 public class GoogleDriveConfig {
     private GoogleCredential googleCredential;
     private NetHttpTransport netHttpTransport;
