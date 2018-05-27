@@ -44,7 +44,7 @@ dependencies {
 
 jacocoTestReport {
     reports {
-        xml.enabled = false
+        xml.enabled = true
     }
 }
 
